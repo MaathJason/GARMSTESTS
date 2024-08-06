@@ -23,6 +23,6 @@ Este repositório contém testes dos recursos para facilitar a implementação d
 
 - **Colaboração Aprimorada:** A integração contínua promove uma cultura de colaboração entre desenvolvedores, testadores e operações, resultando em um fluxo de trabalho mais coeso.
 
-<h1>Conclusão</h1>h2>
+<h1>Conclusão</h1>
 
 O projeto visa não apenas a formação técnica, mas também a criação de um ambiente colaborativo onde os participantes possam aprender e aplicar práticas de segurança desde o início do desenvolvimento. Através deste repositório, esperamos fomentar a troca de conhecimento e a melhoria contínua nas práticas de DevSecOps.
