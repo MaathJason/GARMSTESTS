@@ -5,7 +5,11 @@
 <h2>Sobre o Repositório:</h2>
 <a>Repositório com documentação para permitir um hud de testes para estudar seguindo o fluxo de contéudo do TCC.</a>
 
-<strong>Colaboradores:</strong><a> João Emanuel</a>
+<br>
+<strong>Colaboradores:</strong><br>
+<a> João Emanuel</a><br>
+<a>Mateus Sousa</a><br>
+<a>Murilo Weishaupt</a><br><br>
 
 <h2>Descrição do Projeto</h2>
 
