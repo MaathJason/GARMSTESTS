@@ -31,7 +31,7 @@ jobs:
           const axios = require('axios');
           const semver = require('semver');
 
-          const jsFileUrl = 'https://example.com/path/to/your/script.js';
+          const jsFileUrl = 'https://github.com/MuriloWeishaupt/API-GARMS/blob/main/back-end/src/app.js';
           const expectedVersion = '1.0.0'; // Versão esperada
 
           async function downloadJavaScript() {
