@@ -1,7 +1,7 @@
 <div align="center"> 
-<h1> GARMS: Pipeline CI/CD <img src="https://drive.google.com/file/d/10Pu1pLMEKAawl2Q1VO-CKtTZR-5lptNf/view" alt="Imagem" width="100"> </h1>
+<h1> GARMS: Pipeline CI/CD</h1>
 </div>
-
+![Logotipo do Projeto](.github/workflows/GARMS%20LOGO%20(1).png)
 <h2>Sobre o Repositório:</h2>
 <a>Repositório com documentação para permitir um hud de testes para estudar seguindo o fluxo de contéudo do TCC.</a>
 
