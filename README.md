@@ -27,7 +27,7 @@ Este repositório contém testes dos recursos para facilitar a implementação d
 
 - **Colaboração Aprimorada:** A integração contínua promove uma cultura de colaboração entre desenvolvedores, testadores e operações, resultando em um fluxo de trabalho mais coeso.
 
-<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fhnz.com.br%2Fpipeline-devops%2F&psig=AOvVaw3tEQNYVq5EZ7FtZDaA3y-C&ust=1723049593663000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCICW0onq4IcDFQAAAAAdAAAAABAE" alt="Imagem" width="100">
+<img src="https://hnz.com.br/wp-content/uploads/2021/12/get3qt3.png" alt="Imagem" width="100">
 
 <h2>Conclusão</h2>
 
