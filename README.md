@@ -13,7 +13,7 @@
 
 <h2>Descrição do Projeto</h2>
 
-Este repositório contém testes dos recursos para facilitar a implementação de uma esteira CI/CD (Integração Contínua e Entrega Contínua), alinhada ao fluxo de conteúdo das aulas do curso especializado em DevSecOps da formação Hackers do Bem. A esteira CI/CD é fundamental para otimizar o desenvolvimento de software, permitindo que as equipes integrem e entreguem código de forma mais rápida e eficiente.
+Este repositório contém testes dos recursos para facilitar a implementação de uma esteira CI/CD (Integração Contínua e Entrega Contínua), alinhada ao fluxo de conteúdo das aulas do curso técnico de Redes de  Computador da instituição ETEC de Embu. A esteira CI/CD é fundamental para otimizar o desenvolvimento de software, permitindo que as equipes integrem e entreguem código de forma mais rápida e eficiente.
 
 <h2>Benefícios da Esteira CI/CD:</h2>
 
