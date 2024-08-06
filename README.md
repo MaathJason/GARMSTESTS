@@ -27,6 +27,8 @@ Este repositório contém testes dos recursos para facilitar a implementação d
 
 - **Colaboração Aprimorada:** A integração contínua promove uma cultura de colaboração entre desenvolvedores, testadores e operações, resultando em um fluxo de trabalho mais coeso.
 
-<h1>Conclusão</h1>
+<img src="https://www.google.com/url?sa=i&url=https%3A%2F%2Fhnz.com.br%2Fpipeline-devops%2F&psig=AOvVaw3tEQNYVq5EZ7FtZDaA3y-C&ust=1723049593663000&source=images&cd=vfe&opi=89978449&ved=0CBEQjRxqFwoTCICW0onq4IcDFQAAAAAdAAAAABAE" alt="Imagem" width="100">
+
+<h2>Conclusão</h2>
 
 O projeto visa não apenas a formação técnica, mas também a criação de um ambiente colaborativo onde os participantes possam aprender e aplicar práticas de segurança desde o início do desenvolvimento. Através deste repositório, esperamos fomentar a troca de conhecimento e a melhoria contínua nas práticas de DevSecOps.
