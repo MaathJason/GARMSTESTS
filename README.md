@@ -1,4 +1,4 @@
-<div align="right"> 
+<div align="left"> 
 <img src=".github/workflows/oxente%20(1).png" alt="Logotipo do Projeto" width="100">
 </div>
 <div align="center"> 
