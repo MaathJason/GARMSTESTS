@@ -14,6 +14,65 @@ jobs:
         run: |
              echo "Hello World!"
              
-      - name: Testando1.1
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: '14'  # ou a versão que você preferir
+
+      - name: Install dependencies
+        run: npm install axios semver
+
+      - name: Download JavaScript and run tests
         run: |
-             ping 192.16.3.23
+          node -e "
+          const axios = require('axios');
+          const semver = require('semver');
+
+          const jsFileUrl = 'https://example.com/path/to/your/script.js';
+          const expectedVersion = '1.0.0'; // Versão esperada
+
+          async function downloadJavaScript() {
+              try {
+                  const response = await axios.get(jsFileUrl);
+                  const scriptContent = response.data;
+
+                  const versionMatch = scriptContent.match(/version:\\s*['\"]([^'\"]+)['\"]/);
+                  if (versionMatch) {
+                      const version = versionMatch[1];
+                      console.log(\`Versão do JavaScript baixado: \${version}\`);
+
+                      if (semver.eq(version, expectedVersion)) {
+                          console.log('A versão está correta.');
+                      } else {
+                          console.error(\`A versão esperada era \${expectedVersion}, mas a versão encontrada foi \${version}.\`);
+                          process.exit(1); // Sair com erro
+                      }
+                  } else {
+                      console.error('Não foi possível encontrar a versão no script.');
+                      process.exit(1); // Sair com erro
+                  }
+
+                  await testRequests();
+              } catch (error) {
+                  console.error('Erro ao baixar o arquivo JavaScript:', error);
+                  process.exit(1); // Sair com erro
+              }
+          }
+
+          async function testRequests() {
+              try {
+                  const response = await axios.get('https://api.example.com/endpoint');
+                  console.log('Resposta da requisição:', response.data);
+              } catch (error) {
+                  console.error('Erro ao realizar requisição:', error);
+                  process.exit(1); // Sair com erro
+              }
+          }
+
+          downloadJavaScript();
+          "
+
+
