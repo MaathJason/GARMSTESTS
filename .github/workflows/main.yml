@@ -1,0 +1,15 @@
+name: Pipeline
+
+on: 
+  push:
+    branches:
+      - main
+
+jobs:
+  pipeline:
+    runs-on: ubuntu-20.04
+    steps:
+  
+      - name: Testando
+        run: |
+             echo "Hello World!"
