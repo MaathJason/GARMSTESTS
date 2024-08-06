@@ -1,5 +1,5 @@
 <div align="center"> 
-<h1> GARMS: Pipeline CI/CD </h1>
+<h1> GARMS: Pipeline CI/CD <img src="https://drive.google.com/file/d/10Pu1pLMEKAawl2Q1VO-CKtTZR-5lptNf/view" alt="Imagem" width="100"> </h1>
 </div>
 
 <h2>Sobre o Repositório:</h2>
