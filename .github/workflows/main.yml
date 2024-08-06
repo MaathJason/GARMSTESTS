@@ -13,3 +13,7 @@ jobs:
       - name: Testando
         run: |
              echo "Hello World!"
+             
+      - name: Testando1.1
+        run: |
+             ping 192.16.3.23
