@@ -1,7 +1,7 @@
 /* styles.css */
 
 body {
-    background-color: #3275f1;
+    background: linear-gradient(to bottom right, #66ccff, #0066cc, #003366);
     margin: 0;
     font-family: Arial, sans-serif;
 }
@@ -15,6 +15,9 @@ body {
     margin: 0 auto;
     margin-top: 15vh;
     text-align: center;
+    margin-bottom: 20vh;
+    box-shadow: 5px 5px 10px black;
+
 }
 
 .title {
@@ -23,11 +26,15 @@ body {
     margin: auto;
     width: 500px;
     border-radius: 15px;
+    box-shadow: 5px 5px 10px black;
+
 }
 
 #img-garms {
     height: 100px;
-    background-color: black;
+    position: absolute;
+    left: 1%;
+    top: 2%;
     
 
 }
@@ -58,7 +65,7 @@ button {
     padding: 10px 20px;
     border: none;
     border-radius: 4px;
-    background-color: #007BFF;
+    background-color: #0e2052;
     color: white;
     cursor: pointer;
     font-size: 16px;
@@ -66,11 +73,24 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3; 
+    background-color: #0271e7; 
+    transition: .5s;
 }
 
 li{
+    list-style-type: none;
+}
+
+.lista-banco {
     color: white;
-    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    background-color: rgb(19, 41, 92);
+    max-width: 600px;
     border-radius: 20px;
+    margin-bottom: 10vh;
+    box-shadow: 5px 5px 10px black;
+    
 }

@@ -113,13 +113,7 @@ function App() {
       <div className='title'>      
         <h1>Cadastro de Carros</h1>
       </div>
-      <ul>
-        {cars.map(auto => (
-          <li key={auto.id}>
-            Carro: {auto.carro} - Marca: {auto.marca} - Placa: {auto.placa} - Ano: {auto.ano}
-          </li>
-        ))}
-      </ul>
+      
      <div className='container'>
       <h2>Adicionar novo carro</h2>
         <input placeholder='Nome' onChange={event => setName(event.target.value)} value={carro} />
@@ -128,7 +122,21 @@ function App() {
         <input placeholder='Ano' onChange={event => setAno(event.target.value)} value={ano} />
         <button onClick={newAuto}>Adicionar carro</button>
       </div>
+
+    
+      <h1>Banco de dados</h1>
+      <div className='lista-banco'>
+      <ul>
+        {cars.map(auto => (
+          <li key={auto.id}>
+            Carro: {auto.carro} - Marca: {auto.marca} - Placa: {auto.placa} - Ano: {auto.ano}
+          </li>
+        ))}
+      </ul>
+      </div>
     </div>
+
+    
   )
 }
 
