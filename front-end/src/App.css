@@ -28,6 +28,8 @@ body {
 #img-garms {
     height: 100px;
     background-color: black;
+    background-size: 50px;
+
 }
 
 h1 {
