@@ -1,0 +1,67 @@
+/* styles.css */
+
+body {
+    background-color: #3275f1;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background-color: #152e72;
+    padding: 20px;
+    border-radius: 8px; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 
+    max-width: 600px; 
+    margin: 0 auto;
+    margin-top: 15vh;
+    text-align: center;
+}
+
+.title {
+    background-color: #152e72;
+    text-align: center;
+    margin: auto;
+    width: 500px;
+    border-radius: 15px;
+}
+
+#img-garms {
+    height: 100px;
+}
+
+h1 {
+    text-align: center;
+    color: #ffffff;
+    margin: 20px 0;
+    margin-top: 8vh;
+    padding: 8px;
+}
+
+h2 {
+    color: white;
+}
+
+input {
+    display: block;
+    width: calc(100% - 20px); 
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px; 
+    box-sizing: border-box;
+}
+
+button {
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    font-size: 16px;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3; 
+}

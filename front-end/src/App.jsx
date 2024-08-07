@@ -109,7 +109,10 @@ function App() {
 
   return (
     <div>
-      <h1>Carros</h1>
+      <img id='img-garms' src="./img/1.png" alt="img-GARMS" />
+      <div className='title'>      
+        <h1>Cadastro de Carros</h1>
+      </div>
       <ul>
         {cars.map(auto => (
           <li key={auto.id}>
@@ -117,16 +120,17 @@ function App() {
           </li>
         ))}
       </ul>
-
+     <div className='container'>
       <h2>Adicionar novo carro</h2>
-      <input placeholder='Nome' onChange={event => setName(event.target.value)} value={carro} />
-      <input placeholder='Marca' onChange={event => setMarca(event.target.value)} value={marca} />
-      <input placeholder='Placa' onChange={event => setPlaca(event.target.value)} value={placa} />
-      <input placeholder='Ano' onChange={event => setAno(event.target.value)} value={ano} />
-      <button onClick={newAuto}>Adicionar carro</button>
+        <input placeholder='Nome' onChange={event => setName(event.target.value)} value={carro} />
+        <input placeholder='Marca' onChange={event => setMarca(event.target.value)} value={marca} />
+        <input placeholder='Placa' onChange={event => setPlaca(event.target.value)} value={placa} />
+        <input placeholder='Ano' onChange={event => setAno(event.target.value)} value={ano} />
+        <button onClick={newAuto}>Adicionar carro</button>
+      </div>
     </div>
   )
 }
 
-export default App
+export default App  
 
