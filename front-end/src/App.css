@@ -72,4 +72,5 @@ button:hover {
 li{
     color: white;
     background: black;
+    border-radius: 20px;
 }
