@@ -28,7 +28,7 @@ body {
 #img-garms {
     height: 100px;
     background-color: black;
-    background-size: 10px;
+    
 
 }
 
@@ -67,4 +67,9 @@ button {
 
 button:hover {
     background-color: #0056b3; 
+}
+
+li{
+    color: white;
+    background: black;
 }
