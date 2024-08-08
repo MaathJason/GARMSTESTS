@@ -20,6 +20,6 @@ jobs:
 
       - name: Install dependencies
         run: |
-          sudo apt update && "Sistema atualizado"
-          sudo apt install nodejs npm && "Node.js instalado"
-          sudo npm install && "Dependências baixadas"
+          sudo apt update && echo "Sistema atualizado"
+          sudo apt install nodejs npm && echo "Node.js instalado"
+          sudo npm install && echo "Dependências baixadas"
