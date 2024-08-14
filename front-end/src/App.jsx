@@ -1,79 +1,3 @@
-// import './App.css'
-// import axios from 'axios'
-// import { useState, useEffect } from 'react'
-
-
-// const api = axios.create({
-//   baseURL: 'http://localhost:3000'
-// })
-
-// function App() {
-
-//   const [cars, setCars] = useState([])
-//   const [name, setName] = useState('')
-//   const [marca, setMarca] = useState('')
-//   const [placa, setPlaca] = useState('')
-//   const [ano, setAno] = useState('')
-
-
-//   useEffect( () => {
-//     api.get('/carros').then((response) => {
-//       console.log(response.data)
-//       setCars(response.data)
-//     })
-//   }, [])
-
-//   function newAuto() {
-//     api
-//       .post('/carros', {
-//         name,
-//         marca,
-//         placa,
-//         ano,
-//     }).then( (response) => {
-//       console.log(response)
-//     })
-//   }
-
-//   return (
-//     <div>
-//       <h1>Carros</h1>
-//       <ul>
-//         {cars.map(auto => (
-//           <li key={auto.id}>Carro: {auto.carro} - Marca: {auto.marca} - Placa: {auto.placa} - Ano: {auto.ano}</li>
-//         ))}
-//       </ul>
-
-//       <h2>Adicionar novo carro</h2>
-//       <input placeholder='Nome' onChange={ event => setName(event.target.value) }/>
-//       <input placeholder='Marca' onChange={ event => setMarca(event.target.value) } />
-//       <input placeholder='Placa' onChange={ event => setPlaca(event.target.value) }/>
-//       <input placeholder='Ano' onChange={ event => setAno(event.target.value) }/>
-//       <button onClick={newAuto}>Adicionar carro</button>
-//     </div>
-//   )
-// }
-
-// export default App
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 import './App.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
@@ -114,8 +38,8 @@ function App() {
         <h1>Cadastro de Carros</h1>
       </div>
       
-     <div className='container'>
-      <h2>Adicionar novo carro</h2>
+      <div className='container'>
+        <h2>Adicionar novo carro</h2>
         <input placeholder='Nome' onChange={event => setName(event.target.value)} value={carro} />
         <input placeholder='Marca' onChange={event => setMarca(event.target.value)} value={marca} />
         <input placeholder='Placa' onChange={event => setPlaca(event.target.value)} value={placa} />
@@ -123,22 +47,31 @@ function App() {
         <button onClick={newAuto}>Adicionar carro</button>
       </div>
 
-    
-      <h1>Banco de dados</h1>
+      <h1>Banco de Dados</h1>
       <div className='lista-banco'>
-      <ul>
-        {cars.map(auto => (
-          <li key={auto.id}>
-            Carro: {auto.carro} - Marca: {auto.marca} - Placa: {auto.placa} - Ano: {auto.ano}
-          </li>
-        ))}
-      </ul>
+        <table>
+          <thead>
+            <tr>
+              <th>Carro</th>
+              <th>Marca</th>
+              <th>Placa</th>
+              <th>Ano</th>
+            </tr>
+          </thead>
+          <tbody>
+            {cars.map(auto => (
+              <tr key={auto.id}>
+                <td>{auto.carro}</td>
+                <td>{auto.marca}</td>
+                <td>{auto.placa}</td>
+                <td>{auto.ano}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
       </div>
     </div>
-
-    
   )
 }
 
-export default App  
-
+export default App
