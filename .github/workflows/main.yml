@@ -22,13 +22,24 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - run: |
-        npm i
+    - name: Frontend Build
+      run: |
         cd front-end
-        npm i
+        npm install
         npm run build
         cd ..
-        pm2 stop 0
-        pm2 start 0
+
+    - name: Restart front e back
+      run: |
+        cd front-end
+        pm2 reload garms || pm2 start npm --name garms -- start
+        cd ../back-end
+        pm2 reload backend || pm2 start app.js --name backend
+        cd ..
         pm2 save
-         echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart 
+
+    - name: restart nginx
+      run: |
+        echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart
+      env:
+        USER_PASS: ${{ secrets.USER_PASS }}
