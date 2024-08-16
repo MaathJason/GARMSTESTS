@@ -33,9 +33,9 @@ function App() {
 
   return (
     <div>
-      <img id='img-garms' src="./img/1.png" alt="img-GARMS" />
+      <img id='img-garms' src="front-end/img/1.png" alt="img-GARMS" />
       <div className='title'>      
-        <h1>Cadastro de Carros</h1>
+        <h1>Cadastro de focas</h1>
       </div>
       
       <div className='container'>
