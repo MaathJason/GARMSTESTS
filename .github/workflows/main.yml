@@ -42,7 +42,7 @@ jobs:
         pm2 reload garms || pm2 start npm --name garms -- run dev
         cd ../back-end
         pm2 reload backend || pm2 start server.js --name backend -- run dev
-        cd src/app
+        cd /src/app
         pm2 start app.js --name app -- run dev
        
         cd ..
