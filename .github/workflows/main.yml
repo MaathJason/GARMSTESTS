@@ -48,3 +48,4 @@ jobs:
         echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart
       env:
         USER_PASS: ${{ secrets.USER_PASS }}
+ 
