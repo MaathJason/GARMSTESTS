@@ -24,6 +24,7 @@ jobs:
 
     - name: Frontend Build
       run: |
+        npm i
         cd front-end
         npm install
         npm run build
