@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000',
+  baseURL: 'http://ec2-18-225-57-46.us-east-2.compute.amazonaws.com:3000/',
 });
 
 function App() {
