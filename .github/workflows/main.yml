@@ -31,4 +31,4 @@ jobs:
         pm2 stop 0
         pm2 start 0
         pm2 save
-         echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart
+         echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart 
