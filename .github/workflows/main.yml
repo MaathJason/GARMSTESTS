@@ -29,6 +29,11 @@ jobs:
         npm run build
         cd ..
 
+    - name: backend install dep
+      run: |
+        cd back-end
+        npm i
+
     - name: Restart front e back
       run: |
         cd front-end
