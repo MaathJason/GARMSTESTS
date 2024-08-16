@@ -34,7 +34,7 @@ jobs:
         cd front-end
         pm2 reload garms || pm2 start npm --name garms -- start
         cd ../back-end
-        pm2 reload backend || pm2 start app.js --name backend
+        pm2 reload backend || pm2 start server.js --name backend
         cd ..
         pm2 save
 
