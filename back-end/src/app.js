@@ -4,6 +4,10 @@ import cors from 'cors'
 import dotenv from 'dotenv';
 dotenv.config();
 
+const path = require('path')
+
+app.use(express.static(path.join(__dirname, '/front-end/build')));
+
 const app = express();
 
 

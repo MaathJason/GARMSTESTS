@@ -1,25 +1,30 @@
-name: Pipeline
+name: garms.js CI
 
 on:
   push:
-    branches:
-      - main
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
 
 jobs:
-  pipeline:
-    runs-on: ubuntu-20.04
+  build:
+    runs-on: self-hosted
+
+    strategy:
+      matrix:
+        node-version: [20.x] # Adicione aqui as versões do Node.js que você deseja testar
+
     steps:
-      - name: Testando
-        run: |
-          echo "Hello World!"
+    - uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v2
-        with:
-          node-version: '20'  # Use a versão LTS mais recente
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
 
-      - name: Install dependencies
-        run: |
-          sudo apt update && echo "Sistema atualizado"
-          sudo apt install nodejs npm && echo "Node.js instalado"
-          sudo npm install && echo "Dependências baixadas"
+    - run: |
+        npm i
+        cd front-end
+        npm i
+        npm run build
+        
