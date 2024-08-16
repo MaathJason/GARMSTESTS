@@ -3,8 +3,8 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 const api = axios.create({
-  baseURL: 'http://localhost:3000'
-})
+  baseURL: '/api',
+});
 
 function App() {
   const [cars, setCars] = useState([])
