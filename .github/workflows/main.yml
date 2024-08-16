@@ -24,7 +24,7 @@ jobs:
 
     - run: |
         npm i
-        cd front-end
+        cd frontend
         npm i
         npm run build
-        
+
