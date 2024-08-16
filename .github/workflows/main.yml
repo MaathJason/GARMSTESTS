@@ -33,6 +33,8 @@ jobs:
       run: |
         cd back-end
         npm i
+        npm install cors
+
 
     - name: Restart front e back
       run: |
