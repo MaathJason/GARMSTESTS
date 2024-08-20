@@ -1,7 +1,6 @@
 import './App.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-import image from '../img/1.png';
 
 const api = axios.create({
   baseURL: 'http://ec2-18-225-57-46.us-east-2.compute.amazonaws.com:3000/',
@@ -34,7 +33,7 @@ function App() {
 
   return (
     <div>
-      <img id='img-garms' src={image} alt="img-GARMS"/>
+      <img id='img-garms' src="img/1.png" alt="img-GARMS"/>
       <div className='title'>      
         <h1>Cadastro de Carros</h1>
       </div>
