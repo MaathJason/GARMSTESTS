@@ -22,6 +22,15 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
+
+  - name: Create .env file
+      run: |
+        echo "DB_HOST=${{ secrets.DB_HOST }}" >> back-end/.env
+        echo "DB_USER=${{ secrets.DB_USER }}" >> back-end/.env
+        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> back-end/.env
+        echo "DB_NAME=${{ secrets.DB_NAME }}" >> back-end/.env
+
+
     - name: Frontend Build
       run: |
         npm i
