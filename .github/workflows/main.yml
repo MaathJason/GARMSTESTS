@@ -40,7 +40,7 @@ jobs:
     - name: Restart front e back
       run: |
         cd front-end
-        pm2 reload garms || pm2 start npm --name garms -- run dev
+        pm2 reload garms || pm2 start npm --name garms -- npm run dev
         cd ../back-end
         pm2 reload backend || pm2 start --name backend -- npm run dev
         cd ..
