@@ -45,7 +45,11 @@ jobs:
         npm i
         npm install cors
 
-
+    - name: Testando o Beck na Seda
+      run: |
+        cd back-end
+        npm test
+        
     - name: Resetando front e back
       run: |
         cd front-end
@@ -54,12 +58,6 @@ jobs:
         pm2 reload backend || pm2 start --name backend -- npm run dev
         cd ..
         pm2 save
-
-    - name: Testando o back na seda
-      run: |
-        cd back-end
-        npm test
-
         
 #- name: restart nginx
 #      run: |
