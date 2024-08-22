@@ -46,7 +46,7 @@ jobs:
         npm install cors
 
 
-    - name: Restart front e back
+    - name: Resetando front e back
       run: |
         cd front-end
         pm2 reload garms || pm2 start npm --name garms -- npm run dev
@@ -55,7 +55,12 @@ jobs:
         cd ..
         pm2 save
 
+    - name: Testando o back na seda
+      run: |
+        cd back-end
+        npm test
 
+        
 #- name: restart nginx
 #      run: |
 #        echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart
