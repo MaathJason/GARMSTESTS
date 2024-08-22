@@ -17,13 +17,13 @@ jobs:
     steps:
     - uses: actions/checkout@v3
 
-    - name: Use Node.js ${{ matrix.node-version }}
+    - name: Instalando Node.js ${{ matrix.node-version }}
       uses: actions/setup-node@v4
       with:
         node-version: ${{ matrix.node-version }}
 
 
-    - name: Create .env file
+    - name: Criando .env pata as credenciais 
       run: |
         echo "DB_HOST=${{ secrets.DB_HOST }}" >> back-end/.env
         echo "DB_USER=${{ secrets.DB_USER }}" >> back-end/.env
@@ -31,7 +31,7 @@ jobs:
         echo "DB_NAME=${{ secrets.DB_NAME }}" >> back-end/.env
 
 
-    - name: Frontend Build
+    - name: Build do Front-End
       run: |
         npm i
         cd front-end
@@ -39,7 +39,7 @@ jobs:
         npm run build
         cd ..
 
-    - name: backend install dep
+    - name: Instalando dependências do Back-end
       run: |
         cd back-end
         npm i
@@ -55,9 +55,10 @@ jobs:
         cd ..
         pm2 save
 
-    - name: restart nginx
-      run: |
-        echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart
-      env:
-        USER_PASS: ${{ secrets.USER_PASS }}
+
+#- name: restart nginx
+#      run: |
+#        echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart
+#      env:
+#        USER_PASS: ${{ secrets.USER_PASS }}
  
