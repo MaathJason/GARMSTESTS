@@ -51,7 +51,7 @@ jobs:
         cd back-end
         echo "Iniciando testes..."
         npx mocha --timeout 150
-        ^C
+        mocha --exit
         echo "teste finalizado"
 
     - name: Resetando front e back
