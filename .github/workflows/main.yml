@@ -54,6 +54,7 @@ jobs:
         pm2 reload backend || pm2 start --name backend -- npm run dev
         cd ..
         pm2 save
+        
 
 
 #- name: restart nginx
