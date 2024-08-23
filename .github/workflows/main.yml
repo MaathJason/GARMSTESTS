@@ -48,11 +48,10 @@ jobs:
 
     - name: Test Backend
       run: |
-        cd back-end
         echo "Iniciando testes..."
         npx mocha --timeout 150
-        echo "Testes concluídos."
-        echo "Código de saída: $?"
+        echo "teste finalizado"
+        ^C
 
     - name: Resetando front e back
       run: |
