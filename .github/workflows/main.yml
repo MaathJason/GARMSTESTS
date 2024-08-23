@@ -50,8 +50,11 @@ jobs:
     - name: Test Backend
       run: |
         cd back-end
+        echo "Iniciando testes..."
         npm test
-        timeout-minutes: 1
+        echo "Testes concluídos."
+      timeout-minutes: 1
+
     - name: Resetando front e back
       run: |
         cd ../front-end
