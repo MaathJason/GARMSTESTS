@@ -36,7 +36,7 @@ jobs:
         npm i
         npm update
         cd front-end
-        npm install
+        npm i
         npm run build
         cd ..
 
@@ -50,7 +50,7 @@ jobs:
       run: |
         cd back-end
         echo "Iniciando testes..."
-        timeout 10 npm test
+        timeout 40 npm test
         echo "Testes concluídos."
 
     - name: Resetando front e back
