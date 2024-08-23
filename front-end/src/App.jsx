@@ -33,7 +33,7 @@ function App() {
 
   return (
     <div>
-      <img id='img-garms' src="https://github.com/MaathJason/GARMSTESTS/raw/main/.github/workflows/oxente%20(1).png" alt="img-GARMS"/>
+      <img id='img-garms' src="https://github.com/MaathJason/GARMSTESTS/raw/main/.github/workflows/garmslogo.png" alt="img-GARMS"/>
       <div className='title'>      
         <h1>Cadastro de Carros</h1>
       </div>
