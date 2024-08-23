@@ -45,14 +45,14 @@ jobs:
         npm i
         npm install cors
 
-    - name: Testando o Beck na Seda
+    - name: Test Backend
       run: |
         cd back-end
         npm test
         
     - name: Resetando front e back
       run: |
-        cd front-end
+        cd ../front-end
         pm2 reload garms || pm2 start npm --name garms -- npm run dev
         cd ../back-end
         pm2 reload backend || pm2 start --name backend -- npm run dev
