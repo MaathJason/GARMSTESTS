@@ -1,5 +1,5 @@
 <div align="left"> 
-<img src=".github/workflows/oxente%20(1).png" alt="Logotipo do Projeto" width="100">
+<img src=".github/workflows/logogarms.png" alt="Logotipo do Projeto" width="100">
 </div>
 <div align="center"> 
 <h1> GARMS: Pipeline CI/CD</h1>
