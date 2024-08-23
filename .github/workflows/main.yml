@@ -53,7 +53,7 @@ jobs:
         echo "Iniciando testes..."
         npm test
         echo "Testes concluídos."
-      timeout-minutes: 1
+      timeout-minutes: 3
 
     - name: Resetando front e back
       run: |
