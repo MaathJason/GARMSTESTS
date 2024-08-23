@@ -13,7 +13,6 @@ jobs:
     strategy:
       matrix:
         node-version: [20.x] # Adicione aqui as versões do Node.js que você deseja testar
-        
 
     steps:
     - uses: actions/checkout@v3
@@ -23,14 +22,13 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-
-    - name: Criando .env para as credenciais 
+    - name: Criando .env para as credenciais
       run: |
-        echo "DB_HOST=${{ secrets.DB_HOST }}" >> back-end/.env
-        echo "DB_USER=${{ secrets.DB_USER }}" >> back-end/.env
-        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> back-end/.env
-        echo "DB_NAME=${{ secrets.DB_NAME }}" >> back-end/.env
-
+        echo "DB_HOST=${{ secrets.DB_HOST }}" > .env
+        echo "DB_USER=${{ secrets.DB_USER }}" >> .env
+        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
+        echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+        cat .env # Adicione essa linha apenas para verificação (remova em produção)
 
     - name: Build do Front-End
       run: |
@@ -47,7 +45,6 @@ jobs:
         npm i
         npm install cors
 
-
     - name: Resetando front e back
       run: |
         cd ../front-end
@@ -56,10 +53,10 @@ jobs:
         pm2 reload backend || pm2 start --name backend -- npm run dev
         cd ..
         pm2 save
-        
-#- name: restart nginx
-#      run: |
-#        echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart
-#      env:
-#        USER_PASS: ${{ secrets.USER_PASS }}
- 
+
+    # Descomente e configure se necessário
+    # - name: Restart nginx
+    #   run: |
+    #     echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart
+    #   env:
+    #     USER_PASS: ${{ secrets.USER_PASS }}
