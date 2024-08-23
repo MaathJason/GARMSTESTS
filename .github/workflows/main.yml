@@ -23,7 +23,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
 
 
-    - name: Criando .env pata as credenciais 
+    - name: Criando .env para as credenciais 
       run: |
         echo "DB_HOST=${{ secrets.DB_HOST }}" >> back-end/.env
         echo "DB_USER=${{ secrets.DB_USER }}" >> back-end/.env
@@ -34,6 +34,7 @@ jobs:
     - name: Build do Front-End
       run: |
         npm i
+        npm update
         cd front-end
         npm install
         npm run build
@@ -43,6 +44,7 @@ jobs:
       run: |
         cd back-end
         npm i
+        npm update
         npm install cors
 
     - name: Test Backend
