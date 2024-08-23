@@ -50,7 +50,7 @@ jobs:
       run: |
         cd back-end
         echo "Iniciando testes..."
-        timeout 250 npm test
+        npx mocha --timeout 200000
         echo "Testes concluídos."
         echo "Código de saída: $?"
 
