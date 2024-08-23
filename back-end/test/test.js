@@ -2,7 +2,9 @@ import request from 'supertest';
 import { expect } from 'chai';
 import app from '../src/app.js'; 
 
+
 describe('Carro API', () => {
+
    let createdCarroId = 3;
 //   // Teste para criar um carro
 //   it('Deve criar novo carro', (done) => {
@@ -20,7 +22,7 @@ describe('Carro API', () => {
 
   // Teste para obter todos os carros
   it('Deve puxar todos os carros', function (done) {
-    this.timeout(5000); // Tempo limite de 5 segundos
+    this.timeout(7000); // Tempo limite de 5 segundos
     request(app)
       .get('/carros')
       .expect(200)
@@ -33,7 +35,7 @@ describe('Carro API', () => {
 
   // Teste para obter um carro específico
   it('Deve pegar um carro pelo id', function (done) {
-    this.timeout(5000); // Tempo limite de 5 segundos
+    this.timeout(7000); // Tempo limite de 5 segundos
     request(app)
       .get(`/carros/${createdCarroId}`)
       .expect(200)

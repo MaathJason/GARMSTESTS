@@ -51,7 +51,7 @@ jobs:
       run: |
         cd back-end
         echo "Iniciando testes..."
-        npm test
+        timeout 10 npm run test
         echo "Testes concluídos."
 
     - name: Resetando front e back
