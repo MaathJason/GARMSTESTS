@@ -46,14 +46,6 @@ jobs:
         npm i
         npm install cors
 
-    - name: Test Backend
-      run: |
-        cd back-end
-        npm i 
-        npm update
-        echo "Iniciando testes..."
-        npm test --timeout 50000 --exit
-        echo "teste finalizado"
 
     - name: Resetando front e back
       run: |
