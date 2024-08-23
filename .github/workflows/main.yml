@@ -22,19 +22,20 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
 
-    - name: Criando .env para as credenciais
+
+    - name: Criando .env pata as credenciais 
       run: |
-        echo "DB_HOST=${{ secrets.DB_HOST }}" > .env
-        echo "DB_USER=${{ secrets.DB_USER }}" >> .env
-        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> .env
-        echo "DB_NAME=${{ secrets.DB_NAME }}" >> .env
+        echo "DB_HOST=${{ secrets.DB_HOST }}" >> back-end/.env
+        echo "DB_USER=${{ secrets.DB_USER }}" >> back-end/.env
+        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> back-end/.env
+        echo "DB_NAME=${{ secrets.DB_NAME }}" >> back-end/.env
+
 
     - name: Build do Front-End
       run: |
         npm i
-        npm update
         cd front-end
-        npm i
+        npm install
         npm run build
         cd ..
 
@@ -44,18 +45,20 @@ jobs:
         npm i
         npm install cors
 
-    - name: Resetando front e back
+
+    - name: Restart front e back
       run: |
-        cd ../front-end
+        cd front-end
         pm2 reload garms || pm2 start npm --name garms -- npm run dev
         cd ../back-end
         pm2 reload backend || pm2 start --name backend -- npm run dev
         cd ..
         pm2 save
 
-    # Descomente e configure se necessário
-    # - name: Restart nginx
-    #   run: |
-    #     echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart
-    #   env:
-    #     USER_PASS: ${{ secrets.USER_PASS }}
+
+#- name: restart nginx
+#      run: |
+#        echo "${{ secrets.USER_PASS }}" | sudo -S service nginx restart
+#      env:
+#        USER_PASS: ${{ secrets.USER_PASS }}
+ 
