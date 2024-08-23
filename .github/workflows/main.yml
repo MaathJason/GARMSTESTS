@@ -44,14 +44,13 @@ jobs:
       run: |
         cd back-end
         npm i
-        npm update
         npm install cors
 
     - name: Test Backend
       run: |
         cd back-end
         echo "Iniciando testes..."
-        timeout 10 npm run test
+        timeout 10 npm test
         echo "Testes concluídos."
 
     - name: Resetando front e back
