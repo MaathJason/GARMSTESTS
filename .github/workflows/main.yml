@@ -48,6 +48,7 @@ jobs:
 
     - name: Test Backend
       run: |
+        cd back-end
         echo "Iniciando testes..."
         npx mocha --timeout 150
         echo "teste finalizado"
