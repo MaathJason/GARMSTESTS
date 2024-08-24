@@ -1,4 +1,4 @@
-name: garms.js CI
+name: garmsTest
 
 on:
   push:
@@ -25,6 +25,8 @@ jobs:
 
     - name: Teste Mocha BackEnd
       run: |
+        npm i
+        npm ci
         cd back-end
         npm i
         npm ci
