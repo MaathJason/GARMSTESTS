@@ -25,7 +25,8 @@ jobs:
 
     - name: Teste Mocha BackEnd
       run: |
+        cd back-end
+        npm i
         npm ci
         npm update
-        cd back-end
         npm run test
