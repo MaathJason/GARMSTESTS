@@ -5,7 +5,7 @@ FROM node:20
 WORKDIR /usr/src/app
 
 # Copie o arquivo package.json e package-lock.json
-COPY front-end/package*.json ./
+COPY package*.json ./
 
 # Instale as dependências
 RUN npm install
