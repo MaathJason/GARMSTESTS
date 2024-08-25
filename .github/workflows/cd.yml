@@ -7,9 +7,7 @@ on:
       - completed
 
 jobs:
-
   deploy:
-
     runs-on: [self-hosted, dockertest]
 
     steps:
@@ -29,4 +27,8 @@ jobs:
       run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline:latest
 
     - name: Start Frontend Container
-      run: sudo docker run -d -p 80:80 --name garmspipeline-frontend-container maathjason/garmspipeline-frontend:latest
+      run: |
+        echo "Starting frontend container..."
+        sudo docker run -d -p 80:80 --name garmspipeline-frontend-container maathjason/garmspipeline-frontend:latest
+        echo "Frontend container started."
+        sudo docker ps
