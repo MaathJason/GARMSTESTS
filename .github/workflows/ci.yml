@@ -29,11 +29,11 @@ jobs:
 
 
     - name: Build Backend Docker image
-      run: docker build -t maathjason/garmspipeline:latest -f back-end/Dockerfile back-end
+      run: docker build -t maathjason/garmspipeline:latest -f back-end/dockerfile back-end
 
 
     - name: Build Frontend Docker image
-      run: docker build -t maathjason/garmspipeline-frontend:latest -f front-end/Dockerfile front-end
+      run: docker build -t maathjason/garmspipeline-frontend:latest -f front-end/dockerfile front-end
 
 
     - name: Push to DockerHub
