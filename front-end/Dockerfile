@@ -11,16 +11,16 @@ COPY front-end/package*.json ./
 RUN npm install
 
 # Copiando o restante do código para o container
-COPY front-end .
+COPY front-end ./
+
+# Instalando o Vite
+RUN npm install -g serve
 
 # Construindo a aplicação
 RUN npm run build
-
-# Instalando um servidor HTTP para servir a build
-RUN npm install -g serve
 
 # Expondo a porta na qual a aplicação será executada
 EXPOSE 80
 
 # Comando para iniciar a aplicação
-CMD ["serve", "-s", "build"]
+CMD ["serve", "-s", "dist", "-l", "80"]
