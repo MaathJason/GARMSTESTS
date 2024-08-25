@@ -25,10 +25,8 @@ jobs:
     - name: Delete Old frontend container
       run: sudo docker rm -f garmspipeline-frontend-container || true
 
-    - name: Backend Conteiner
+    - name: Start Backend Container
       run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline:latest
 
-    - name: Frontend conteiner
+    - name: Start Frontend Container
       run: sudo docker run -d -p 80:80 --name garmspipeline-frontend-container maathjason/garmspipeline-frontend:latest
-
-
