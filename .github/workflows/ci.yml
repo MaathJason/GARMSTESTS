@@ -26,8 +26,22 @@ jobs:
         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
         DOCKER_PASSWORD: ${{secrets.DOCKER_PASSWORD}}
       run: docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
-    - name: Build the Docker image
-      run: docker build -t maathjason/garmspipeline:latest .
+
+
+    - name: Build Backend Docker image
+      run: docker build -t maathjason/garmspipeline:latest -f back-end/Dockerfile back-end
+
+
+    - name: Build Frontend Docker image
+      run: docker build -t maathjason/garmspipeline-frontend:latest -f front-end/Dockerfile front-end
+
 
     - name: Push to DockerHub
       run: docker push maathjason/garmspipeline:latest
+
+
+    - name: Push Backend para o Dockerhub
+      run: docker push maathjason/garmspipeline:latest
+
+    - name: Push Frontend para o Dockerhub
+      run: docker push maathjason/garmspipeline-frontend:latest

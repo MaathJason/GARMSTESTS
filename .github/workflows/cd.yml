@@ -8,17 +8,25 @@ on:
 
 jobs:
 
-  build:
+  deploy:
 
     runs-on: [self-hosted, dockertest]
 
-
     steps:
-    - name: Pull Docker image
+    - name: Pull backend Docker image
       run: sudo docker pull maathjason/garmspipeline:latest
-    - name: Delete Old docker container
-      run: sudo docker rm -f garmspipeline-container || true
-    - name: Run Docker Container
-      run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline
 
-      
+    - name: Pull frontend Docker image
+      run: sudo docker pull maathjason/garmspipeline-frontend:latest
+
+    - name: Delete Old backend container
+      run: sudo docker rm -f garmspipeline-container || true
+
+    - name: Delete Old frontend container
+      run: sudo docker rm -f garmspipeline-frontend-container || true
+
+    - name: Backend Conteiner
+      run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline:latest
+
+    - name: Frontend conteiner
+      run: sudo docker run -d -p 80:80 --name garmspipeline-frontend-container maathjason/garmspipeline-frontend:latest
