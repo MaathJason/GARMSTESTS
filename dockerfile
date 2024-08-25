@@ -1,5 +1,5 @@
 # Usando uma imagem base do Node.js
-FROM node:18
+FROM node:20
 
 # Definindo o diretório de trabalho dentro do container
 WORKDIR /usr/src/app
@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY back-end/package*.json ./
 
 # Instalando as dependências
-RUN npm install --production
+RUN npm install
 
 # Copiando o restante do código para o container
 COPY back-end .
@@ -17,4 +17,4 @@ COPY back-end .
 EXPOSE 3000
 
 # Comando para iniciar a aplicação
-CMD ["node", "server.js"]
+CMD ["npm", "run", "dev"]
