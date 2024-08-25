@@ -8,7 +8,7 @@ on:
 
 jobs:
   deploy:
-    runs-on: [self-hosted]
+    runs-on: [self-hosted, dockertest]
 
     steps:
     - name: Pull backend Docker image
