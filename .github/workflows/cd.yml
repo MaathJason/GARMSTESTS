@@ -10,7 +10,8 @@ jobs:
 
   build:
 
-    runs-on: self-hosted
+    runs-on: [self-hosted, dockertest]
+
 
     steps:
     - name: Pull Docker image
@@ -19,4 +20,3 @@ jobs:
       run: sudo docker rm -f garmspipeline-container || true
     - name: Run Docker Container
       run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline
-      
