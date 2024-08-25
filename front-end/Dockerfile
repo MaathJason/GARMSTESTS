@@ -11,7 +11,7 @@ COPY front-end/package*.json ./
 RUN npm install
 
 # Copie o restante do código da aplicação
-COPY front-end ./
+COPY front-end . .
 
 # Construa a aplicação
 RUN npm run build
