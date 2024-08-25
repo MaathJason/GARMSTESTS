@@ -13,6 +13,9 @@ RUN npm install
 # Copiando o restante do código para o container
 COPY back-end .
 
+# Copiando o arquivo .env para o contêiner
+COPY back-end/.env ./
+
 # Expondo a porta na qual a aplicação será executada
 EXPOSE 3000
 

@@ -13,6 +13,14 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
+
+    - name: Criando .env para as credenciais
+      run: |
+        echo "DB_HOST=${{ secrets.DB_HOST }}" > back-end/.env
+        echo "DB_USER=${{ secrets.DB_USER }}" >> back-end/.env
+        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> back-end/.env
+        echo "DB_NAME=${{ secrets.DB_NAME }}" >> back-end/.env
+
     - name: Login DockerHub
       env:
         DOCKER_USERNAME: ${{secrets.DOCKER_USERNAME}}
