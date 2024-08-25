@@ -3,7 +3,7 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 
 const api = axios.create({
-  baseURL: 'http://18.191.144.192:3000',
+  baseURL: 'http://3.145.65.214:3000',
 });
 
 function App() {
