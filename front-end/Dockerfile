@@ -1,25 +1,25 @@
-# Usando uma imagem base do Node.js
+# Use uma imagem base com Node.js
 FROM node:20
 
-# Definindo o diretório de trabalho dentro do container
+# Defina o diretório de trabalho
 WORKDIR /usr/src/app
 
-# Copiando o arquivo de dependências para o container
-COPY package*.json ./
+# Copie o arquivo package.json e package-lock.json
+COPY front-end/package*.json ./
 
-# Instalando as dependências
+# Instale as dependências
 RUN npm install
 
-# Copiando o restante do código para o container
-COPY . .
+# Copie o restante do código da aplicação
+COPY front-end ./
 
-# Instalando o Vite
-RUN npm install -g serve
-
-# Construindo a aplicação
+# Construa a aplicação
 RUN npm run build
 
-# Expondo a porta na qual a aplicação será executada
+# Instale o serve para servir a aplicação estática
+RUN npm install -g serve
+
+# Exponha a porta em que a aplicação será executada
 EXPOSE 80
 
 # Comando para iniciar a aplicação
