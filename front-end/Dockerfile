@@ -5,13 +5,13 @@ FROM node:20
 WORKDIR /usr/src/app
 
 # Copiando o arquivo de dependências para o container
-COPY front-end/package*.json ./
+COPY package*.json ./
 
 # Instalando as dependências
 RUN npm install
 
 # Copiando o restante do código para o container
-COPY . front-end
+COPY . .
 
 # Instalando o Vite
 RUN npm install -g serve
