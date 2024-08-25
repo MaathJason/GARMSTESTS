@@ -11,7 +11,7 @@ COPY front-end/package*.json ./
 RUN npm install
 
 # Copiando o restante do código para o container
-COPY front-end ./
+COPY . front-end
 
 # Instalando o Vite
 RUN npm install -g serve
