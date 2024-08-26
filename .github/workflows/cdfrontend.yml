@@ -2,7 +2,7 @@ name: CD Frontend Pipeline
 
 on:
   workflow_run:
-    workflows: ["CI Pipeline", "CD Backend Pipeline"]
+    workflows: ["CD Backend Pipeline"]
     types:
       - completed
 
