@@ -7,12 +7,11 @@ export default defineConfig({
     host: true,
     port: 80,
     proxy: {
-      '/api': {
+      '/carros': {
         target: 'http://3.145.65.214:3000',
         changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
+        rewrite: (path) => path.replace(/^\/carros/, ''),
       },
     },
   },
 });
- 
