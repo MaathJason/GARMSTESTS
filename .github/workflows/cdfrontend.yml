@@ -7,7 +7,7 @@ on:
       - completed
 
 jobs:
-  deploy:
+  frontend-deploy:
     runs-on: [self-hosted, dockertest]
 
     steps:
