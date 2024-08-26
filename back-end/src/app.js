@@ -31,7 +31,10 @@ app.get('/metrics', async (req, res) => {
 
 // Indicar para o express ler body com JSON e usar o CORS
 app.use(express.json());
-app.use(cors());
+app.use(cors({
+  origin: '*', // Permitir todas as origens
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Métodos permitidos
+}));
 
 // CREATE (C)
 app.post('/carros', CarroController.store);
