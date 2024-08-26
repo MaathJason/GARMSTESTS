@@ -37,3 +37,5 @@ jobs:
 
     - name: Push Frontend Docker image to DockerHub
       run: docker push maathjason/garmspipeline-frontend:latest
+
+      
