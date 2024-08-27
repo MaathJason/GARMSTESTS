@@ -35,3 +35,4 @@ jobs:
         cd back-end
         npm ci
         npm run test
+        -- exit
