@@ -6,8 +6,6 @@ import app from '../src/app.js';
 describe('Carro API', () => {
 
 
-   this.timeout(30000);
-
 
    let createdCarroId = 3;
 //   // Teste para criar um carro
