@@ -35,9 +35,8 @@ describe('Carro API', () => {
       });
   });
 
-  // Teste para obter um carro específico
   it('Deve pegar um carro pelo id', function (done) {
-    this.timeout(7000); // Tempo limite de 5 segundos
+    this.timeout(7000); // Tempo limite de 7 segundos
     request(app)
       .get(`/carros/${createdCarroId}`)
       .expect(200)
@@ -46,5 +45,10 @@ describe('Carro API', () => {
         expect(res.body).to.have.property('carro', 'Q5');
         done();
       });
+  });
+
+  // Hook para fechar conexões após os testes
+  after((done) => {
+    done();
   });
 });
