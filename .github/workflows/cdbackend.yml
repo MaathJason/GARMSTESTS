@@ -11,13 +11,17 @@ jobs:
     runs-on: [self-hosted, dockertest]
 
     steps:
-    - name: Pull backend Docker image
+
+     - name: Apagando Imagens não Usadas
+      run: docker image prune -a
+
+    - name: Puxando a imagem para o docker
       run: sudo docker pull maathjason/garmspipeline:latest
 
-    - name: Delete Old backend container
+    - name: Deletando o antigo conteiner
       run: sudo docker rm -f garmspipeline-container || true
 
-    - name: Start Backend Container
+    - name: Start do conteiner de backend
       run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline:latest
 
       
