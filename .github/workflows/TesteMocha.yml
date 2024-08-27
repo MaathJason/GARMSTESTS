@@ -35,6 +35,7 @@ jobs:
         npm i
         cd back-end
         npm i
+        npm i mocha
         npm ci
         npm update
         npm run test
