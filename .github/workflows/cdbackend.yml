@@ -13,15 +13,15 @@ jobs:
     steps:
 
      - name: Apagando Imagens não Usadas
-      run: docker image prune -a
+       run: docker image prune -a
+       
+     - name: Puxando a imagem para o docker
+       run: sudo docker pull maathjason/garmspipeline:latest
 
-    - name: Puxando a imagem para o docker
-      run: sudo docker pull maathjason/garmspipeline:latest
+     - name: Deletando o antigo conteiner
+       run: sudo docker rm -f garmspipeline-container || true
 
-    - name: Deletando o antigo conteiner
-      run: sudo docker rm -f garmspipeline-container || true
-
-    - name: Start do conteiner de backend
-      run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline:latest
+     - name: Start do conteiner de backend
+       run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline:latest
 
       
