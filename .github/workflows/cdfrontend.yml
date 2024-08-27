@@ -12,7 +12,7 @@ jobs:
 
     steps:
     - name: Apagando Imagens não Usadas
-      run: docker image prune -a
+      run: docker image prune -a -y
 
     - name: Puxando a imagem docker
       run: sudo docker pull maathjason/garmspipeline-frontend:latest
