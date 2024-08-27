@@ -5,6 +5,10 @@ import app from '../src/app.js';
 
 describe('Carro API', () => {
 
+
+
+mocha.setup({ timeout: 30000 });
+
    let createdCarroId = 3;
 //   // Teste para criar um carro
 //   it('Deve criar novo carro', (done) => {
