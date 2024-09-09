@@ -47,7 +47,7 @@ function App() {
         <button onClick={newAuto}>Adicionar carro</button>
       </div>
 
-      <h1>Banco de Dados</h1>
+      <h1 className='banco-title'>Banco de Dados</h1>
       <div className='lista-banco'>
         <table>
           <thead>
