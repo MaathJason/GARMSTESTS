@@ -1,0 +1,34 @@
+name: qualiy-test
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  eslint:
+  runs-on: ubuntu-latest
+  permissions:
+    security-events: write
+    actions: read  
+    contents: read
+  steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16'
+
+    - name: Install Dependencies
+      run: npm install
+
+    - name: Run ESLint Analysis
+      run: npm run lint
+
+
+    
