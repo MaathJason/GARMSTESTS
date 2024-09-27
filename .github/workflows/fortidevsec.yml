@@ -1,0 +1,25 @@
+name: fortidevsec
+
+on:
+  workflow_run:
+    workflows: ["CI Pipeline"]
+    types:
+      - completed
+
+jobs:
+  backend-deploy:
+    runs-on: [self-hosted, dockertest]
+
+    steps:
+
+     - name: Apagando Imagens não Usadas
+       run: docker image prune -a -f
+       
+     - name: Puxando a imagem para o docker
+       run: sudo docker pull maathjason/garmspipeline:latest
+
+     - name: Deletando o antigo conteiner
+       run: sudo docker rm -f garmspipeline-container || true
+
+     - name: Start do conteiner de backend
+       run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline:latest
