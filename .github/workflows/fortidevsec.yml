@@ -1,9 +1,10 @@
 name: FortiDevSec Scanner CI
+
 on:
     push:
-        branches: [ main ]
+        branches: [ main, prod ]  # Adicionada a branch prod
     pull_request:
-        branches: [ main ]
+        branches: [ main, prod ]  # Adicionada a branch prod
 jobs:
     build:
         runs-on: ubuntu-latest
