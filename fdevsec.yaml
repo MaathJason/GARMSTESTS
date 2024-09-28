@@ -1,6 +1,6 @@
 id:
-  org: 47efab5e-49a4-458c-ba9c-780e345924d2
-  app: fb738428-fd44-4538-b4bc-a3a1d934f96d
+  ${{ secrets.ORG }}: 47efab5e-49a4-458c-ba9c-780e345924d2
+  ${{ secrets.APP }}: fb738428-fd44-4538-b4bc-a3a1d934f96d
 
 # If below settings are not configured, scans will be performed for all supported scanners.
 #scanners:
