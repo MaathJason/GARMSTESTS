@@ -1,25 +1,15 @@
-name: fortidevsec
-
+name: FortiDevSec Scanner CI
 on:
-  workflow_run:
-    workflows: ["CI Pipeline"]
-    types:
-      - completed
-
+    push:
+        branches: [ master ]
+    pull_request:
+        branches: [ master ]
 jobs:
-  backend-deploy:
-    runs-on: [self-hosted, dockertest]
-
-    steps:
-
-     - name: Apagando Imagens não Usadas
-       run: docker image prune -a -f
-       
-     - name: Puxando a imagem para o docker
-       run: sudo docker pull maathjason/garmspipeline:latest
-
-     - name: Deletando o antigo conteiner
-       run: sudo docker rm -f garmspipeline-container || true
-
-     - name: Start do conteiner de backend
-       run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline:latest
+    build:
+        runs-on: ubuntu-latest
+        steps:
+        - uses: actions/checkout@v2
+        - name: SAST
+          run: |
+            env | grep -E "GITHUB_ACTIONS|GITHUB_RUN_NUMBER|GITHUB_REF_NAME|GITHUB_SHA" > /tmp/env
+            docker run --pull always --rm --env-file /tmp/env --mount type=bind,source=$PWD,target=/scan registry.fortidevsec.forticloud.com/fdevsec_sast:latest
