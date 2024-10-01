@@ -28,7 +28,7 @@ COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
 COPY start.sh /start.sh
 RUN chmod +x /start.sh
 
-# Expor a porta 80
+# Expor a porta 80 e 443
 EXPOSE 80
 EXPOSE 443
 
