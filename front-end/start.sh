@@ -12,7 +12,7 @@ else
 fi
 
 chown root:root /etc/letsencrypt/live/garmsops.com.br/*
-
+chown -R www-data:www-data /etc/letsencrypt/
 chmod 644 /etc/letsencrypt/live/garmsops.com.br/*
 
 # Iniciar o Nginx
