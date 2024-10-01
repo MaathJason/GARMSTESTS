@@ -4,7 +4,7 @@ on:
     push:
         branches: [ main, prod ]  # Adicionada a branch prod
     pull_request:
-        branches: [ main, prod ]  # Adicionada a branch prod
+        branches: [ main, prod ]
 jobs:
     build:
         runs-on: ubuntu-latest
