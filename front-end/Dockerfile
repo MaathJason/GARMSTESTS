@@ -1,26 +1,28 @@
-# Use uma imagem base com Node.js
-FROM node:20
+# Etapa de build
+FROM node:20 AS builder
 
 # Defina o diretório de trabalho
 WORKDIR /usr/src/app
 
-# Copie o arquivo package.json e package-lock.json
+# Copie os arquivos necessários e instale as dependências
 COPY package*.json ./
-
-# Instale as dependências
 RUN npm install
 
-# Copie o restante do código da aplicação
+# Copie o código e faça o build
 COPY . .
-
-# Construa a aplicação
 RUN npm run build
 
-# Instale o serve para servir a aplicação estática
-RUN npm install -g serve
+# Etapa de produção com Nginx
+FROM nginx:alpine
 
-# Exponha a porta em que a aplicação será executada
+# Copiar o arquivo de configuração do Nginx
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# Copiar os arquivos de build do frontend para o Nginx
+COPY --from=builder /usr/src/app/dist /usr/share/nginx/html
+
+# Expor a porta 80
 EXPOSE 80
 
-# Comando para iniciar a aplicação
-CMD ["serve", "-s", "dist", "-l", "80"]
+# Iniciar o Nginx
+CMD ["nginx", "-g", "daemon off;"]

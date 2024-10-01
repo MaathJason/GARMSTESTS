@@ -3,15 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  server: {
-    host: true,
-    port: 80,
-    proxy: {
-      '/carros': {
-        target: 'http://3.145.65.214:3000',
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/carros/, ''),
-      },
-    },
+  build: {
+    outDir: 'dist', // Certifique-se de que o build vai gerar os arquivos na pasta 'dist'
   },
 });
