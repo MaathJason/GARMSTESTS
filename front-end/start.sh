@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Obter certificados com Certbot
-sudo certbot certonly --nginx -d garmsops.com.br -d www.garmsops.com.br --non-interactive --agree-tos --email seu_email@example.com
+certbot certonly --nginx -d garmsops.com.br -d www.garmsops.com.br --non-interactive --agree-tos --email seu_email@example.com
 
 # Verifique se os certificados foram gerados
 if [ -f /etc/letsencrypt/live/garmsops.com.br/fullchain.pem ]; then
@@ -11,9 +11,9 @@ else
     exit 1
 fi
 
-sudo chown root:root /etc/letsencrypt/live/garmsops.com.br/*
+chown root:root /etc/letsencrypt/live/garmsops.com.br/*
 
-sudo chmod 644 /etc/letsencrypt/live/garmsops.com.br/*
+chmod 644 /etc/letsencrypt/live/garmsops.com.br/*
 
 # Iniciar o Nginx
 nginx -g "daemon off;"
