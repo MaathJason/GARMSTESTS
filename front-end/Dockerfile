@@ -16,7 +16,8 @@ RUN npm run build
 FROM nginx:alpine
 
 # Instalar Certbot
-RUN apk add --no-cache certbot
+RUN apk add --no-cache certbot certbot-nginx
+
 
 # Copiar o arquivo de configuração do Nginx
 COPY nginx.conf /etc/nginx/conf.d/default.conf
