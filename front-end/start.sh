@@ -13,11 +13,16 @@ fi
 
 chown root:root /etc/letsencrypt/live/garmsops.com.br/*
 chown -R www-data:www-data /etc/letsencrypt/
-sudo chmod 755 /etc/letsencrypt
-sudo chmod 755 /etc/letsencrypt/live
-sudo chmod 755 /etc/letsencrypt/archive
-sudo chmod 644 /etc/letsencrypt/live/garmsops.com.br/fullchain.pem
-sudo chmod 600 /etc/letsencrypt/live/garmsops.com.br/privkey.pem
+chmod 755 /etc/letsencrypt
+chmod 755 /etc/letsencrypt/live
+chmod 755 /etc/letsencrypt/archive
+chmod 644 /etc/letsencrypt/live/garmsops.com.br/fullchain.pem
+chmod 600 /etc/letsencrypt/live/garmsops.com.br/privkey.pem
+
+ls -l /etc/letsencrypt/live/garmsops.com.br/
+
+
+
 
 
 # Iniciar o Nginx
