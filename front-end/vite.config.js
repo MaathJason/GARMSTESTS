@@ -8,7 +8,7 @@ export default defineConfig({
     port: 80,
     proxy: {
       '/carros': {
-        target: 'http://3.145.65.214:3000',
+        target: 'http://18.222.23.155:3000',
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/carros/, ''),
       },
