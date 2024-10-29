@@ -5,11 +5,6 @@ on:
   push:
     branches: ["main"]
 
-  workflow_run:
-    workflows: ["CI/CD Pipeline"]
-    types: 
-      - completed
-
 jobs:
   # Job de CI: Build e Push das imagens Docker
   build:
@@ -78,5 +73,3 @@ jobs:
 
       - name: Iniciando o contêiner de frontend
         run: sudo docker run -d -p 80:80 -p 443:443 --name garmspipeline-frontend-container maathjason/garmspipeline-frontend:latest
-
-        
