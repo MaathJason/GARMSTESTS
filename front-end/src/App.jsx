@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useState, useEffect } from 'react';
 
 const api = axios.create({ //Faz contato com o endereço da máquina na AWS
-  baseURL: 'http://3.145.65.214:3000',
+  baseURL: 'http://18.222.23.155:3000',
 });
 
 function App() {
