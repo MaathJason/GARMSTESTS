@@ -1,58 +1,80 @@
-name: pipeline
+# Pipeline combinada para CI e CD
+name: CI/CD Pipeline
+
 on:
   push:
-    branches:
-      - main
-      - prod
-  pull_request:
-    branches:
-      - main
-      - prod
+    branches: ["main"]
+
+  workflow_run:
+    workflows: ["CI/CD Pipeline"]
+    types: 
+      - completed
 
 jobs:
+  # Job de CI: Build e Push das imagens Docker
   build:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v4
+      - uses: actions/checkout@v4
 
-    - name: Criando .env para as credenciais
-      run: |
-        echo "DB_HOST=${{ secrets.DB_HOST }}" > back-end/.env
-        echo "DB_USER=${{ secrets.DB_USER }}" >> back-end/.env
-        echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> back-end/.env
-        echo "DB_NAME=${{ secrets.DB_NAME }}" >> back-end/.env
+      - name: Criando .env para as credenciais
+        run: |
+          echo "DB_HOST=${{ secrets.DB_HOST }}" > back-end/.env
+          echo "DB_USER=${{ secrets.DB_USER }}" >> back-end/.env
+          echo "DB_PASSWORD=${{ secrets.DB_PASSWORD }}" >> back-end/.env
+          echo "DB_NAME=${{ secrets.DB_NAME }}" >> back-end/.env
 
-    - name: Login DockerHub
-      env:
-        DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
-        DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
-      run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+      - name: Login DockerHub
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+        run: echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
 
-    - name: Build Backend Docker image
-      run: docker build -t maathjason/garmspipeline:latest -f back-end/Dockerfile back-end
+      - name: Build Backend Docker image
+        run: docker build -t maathjason/garmspipeline:latest -f back-end/Dockerfile back-end
 
-    - name: Build Frontend Docker image
-      run: docker build -t maathjason/garmspipeline-frontend:latest -f front-end/Dockerfile front-end
-    
-    - name: Push Backend Docker image to DockerHub
-      run: docker push maathjason/garmspipeline:latest
+      - name: Build Frontend Docker image
+        run: docker build -t maathjason/garmspipeline-frontend:latest -f front-end/Dockerfile front-end
 
-    - name: Push Frontend Docker image to DockerHub
-      run: docker push maathjason/garmspipeline-frontend:latest
+      - name: Push Backend Docker image to DockerHub
+        run: docker push maathjason/garmspipeline:latest
 
-  cd_backend:
+      - name: Push Frontend Docker image to DockerHub
+        run: docker push maathjason/garmspipeline-frontend:latest
+
+  # Job de CD para o Backend
+  backend-deploy:
+    runs-on: [self-hosted, dockertest]
     needs: build
-      runs-on: ubuntu-latest
 
-    - name: Apagando Imagens não Usadas
-      run:  docker image prune -a -f
+    steps:
+      - name: Apagando Imagens não Usadas
+        run: docker image prune -a -f
 
-     - name: Puxando a imagem docker
-      run: sudo docker pull maathjason/garmspipeline-frontend:latest
+      - name: Puxando a imagem Docker do backend
+        run: sudo docker pull maathjason/garmspipeline:latest
 
-    - name: Deletando o conteiner antigo
-      run: sudo docker rm -f garmspipeline-frontend-container || true
+      - name: Deletando o contêiner antigo
+        run: sudo docker rm -f garmspipeline-container || true
 
-    - name: Start container do frontend
-      run: sudo docker run -d -p 80:80 -p 443:443 --name garmspipeline-frontend-container maathjason/garmspipeline-frontend:latest
+      - name: Iniciando o contêiner de backend
+        run: sudo docker run -d -p 3000:3000 --name garmspipeline-container maathjason/garmspipeline:latest
+
+  # Job de CD para o Frontend
+  frontend-deploy:
+    runs-on: [self-hosted, dockertest]
+    needs: backend-deploy
+
+    steps:
+      - name: Apagando Imagens não Usadas
+        run: docker image prune -a -f
+
+      - name: Puxando a imagem Docker do frontend
+        run: sudo docker pull maathjason/garmspipeline-frontend:latest
+
+      - name: Deletando o contêiner antigo
+        run: sudo docker rm -f garmspipeline-frontend-container || true
+
+      - name: Iniciando o contêiner de frontend
+        run: sudo docker run -d -p 80:80 -p 443:443 --name garmspipeline-frontend-container maathjason/garmspipeline-frontend:latest
