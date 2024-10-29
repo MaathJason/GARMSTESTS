@@ -73,3 +73,5 @@ jobs:
 
       - name: Iniciando o contêiner de frontend
         run: sudo docker run -d -p 80:80 -p 443:443 --name garmspipeline-frontend-container maathjason/garmspipeline-frontend:latest
+
+        
