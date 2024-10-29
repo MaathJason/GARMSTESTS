@@ -40,7 +40,7 @@ jobs:
 
   # Job de CD para o Backend
   backend-deploy:
-    runs-on: [self-hosted, dockertest]
+    runs-on: [dockertest]
     needs: build
 
     steps:
@@ -58,7 +58,7 @@ jobs:
 
   # Job de CD para o Frontend
   frontend-deploy:
-    runs-on: [self-hosted, dockertest]
+    runs-on: [dockertest]
     needs: backend-deploy
 
     steps:
@@ -74,4 +74,3 @@ jobs:
       - name: Iniciando o contêiner de frontend
         run: sudo docker run -d -p 80:80 -p 443:443 --name garmspipeline-frontend-container maathjason/garmspipeline-frontend:latest
 
-        
